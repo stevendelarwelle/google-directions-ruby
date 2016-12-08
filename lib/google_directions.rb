@@ -39,7 +39,7 @@ class GoogleDirections
     if @status != "OK"
       drive_time = 0
     else
-      drive_time = @doc.css("DirectionsResponse route leg duration value").last.text
+      drive_time = @doc.css("duration value").last.text
       convert_to_minutes(drive_time)
     end
   end
@@ -50,7 +50,7 @@ class GoogleDirections
     unless @status == 'OK'
       @distance = 0
     else
-      @distance = @doc.css("DirectionsResponse route leg distance value").last.text
+      @distance = @doc.css("distance value").last.text
     end
   end
 
@@ -59,7 +59,7 @@ class GoogleDirections
     unless @status == 'OK'
       @distance_text = "0 km"
     else
-      @distance_text = @doc.css("DirectionsResponse route leg distance text").last.text
+      @distance_text = @doc.css("distance text").last.text
     end
   end
 
